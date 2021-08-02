@@ -11,8 +11,8 @@ var registerRouter = require('./routes/register');
 var thankyouRouter = require('./routes/thankyou');
 var contactusRouter = require('./routes/contactus');
 
-const MONGO_COMPASS_URL = "mongodb://localhost:27017/custTest";
-const MONGO_ATLAS_URL = "mongodb+srv://gacasti:1234321@cluster0.jg6vs.mongodb.net/custTest?retryWrites=true&w=majority";
+const HC_MONGO_COMPASS_URL = "mongodb://localhost:27017/travelexperts";
+const HC_MONGO_ATLAS_URL = "mongodb+srv://gacasti:1234321@cluster0.jg6vs.mongodb.net/travelexperts?retryWrites=true&w=majority";
 const mongoSanitize = require("express-mongo-sanitize");
 
 var app = express();
@@ -46,7 +46,7 @@ app.use(
 var mongoose = require("mongoose");
 
 // Set up a mongoose connection
-mongoose.connect(MONGO_ATLAS_URL || MONGO_COMPASS_URL, {
+mongoose.connect(process.env.MONGO_ATLAS_URL || HC_MONGO_ATLAS_URL || HC_MONGO_COMPASS_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
