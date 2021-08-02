@@ -18,6 +18,7 @@ const mongoSanitize = require("express-mongo-sanitize");
 var app = express();
 
 // view engine setup
+//test comment
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
