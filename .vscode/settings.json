@@ -1,0 +1,8 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/dd2b7083-0f4c-462d-837b-d2efeee5bb67/resourceGroups/GC_TravelExperts/providers/Microsoft.Web/sites/gctravelexperts072021",
+    "appService.deploySubpath": ".",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ]
+}

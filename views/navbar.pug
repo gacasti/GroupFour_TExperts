@@ -1,0 +1,21 @@
+nav.navbar.navbar-expand-lg.bg-info.navbar-light.py-4.mb-0.fixed-top
+        .container
+          a.navbar-brand(href='/')
+            img(src='images/TELogo2.gif' width='300' height='75' alt='')
+          button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#temenu')
+            span.navbar-toggler-icon
+          #temenu.collapse.navbar-collapse
+            ul.navbar-nav.ms-auto
+              li.nav-item
+                a.nav-link.mt-2.text-lg(href='register') Register
+              li.nav-item
+                a.nav-link.mt-2(href='contactus') Contact Us
+              if currentUser
+                li.nav-item
+                a.nav-link.mt-2(href="/log-out") Log Out
+              else
+                li.nav-item
+                a.nav-link.mt-2(href='login') Log In
+              if currentUser && currentUser.role == "manager"
+                li.nav-item
+                a.nav-link(href='/data') Performance Data
