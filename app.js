@@ -45,7 +45,8 @@ app.use(
 // Configure the DB connection using Mongoose
 var mongoose = require("mongoose");
 
-// Set up a mongoose connection
+// Set up a mongoose connection.  This will ensure to find
+// at least one valid connection string.
 mongoose.connect(process.env.MONGO_ATLAS_URL || HC_MONGO_ATLAS_URL || HC_MONGO_COMPASS_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true
