@@ -17,15 +17,14 @@ block content
 
 
   .container
-    h2.bg-info Our Packages
-      .row
-        each pack in package
-          .card.col-lg-3.col-md-4.col-sm-12
-            img.card-img-top(src=prod.image height="200")
-            .card-body
-              h5.card-title= pack.PkgName 
-              h6.card-text
-                | description: #{pack.PkgDesc}
-                | Price: #{pack.PkgBasePrice}
-      a.btn.btn-primary.col-12(href='/add/package') ADD
+    ul
+    each pack in listOfPackages 
+      li
+        h4= pack.PkgName
+        p= pack.PkgDesc
+        p= pack.PkgStartDate
+        p= pack.PkgEndDate
+        p #{pack.PkgBasePrice} CAD
+        p #{pack.PkgAgencyCommission} CAD
+      a.btn.btn-primary.col-12(href='/') ADD
       //check out line 22 error & fix

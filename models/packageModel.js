@@ -43,4 +43,4 @@ const packageSchema = new mongoose.Schema({
 });
 
 packageSchema.plugin(uniqueValidator);
-module.exports.package = mongoose.model('Package', packageSchema);
+module.exports.Package = mongoose.model('Package', packageSchema);
