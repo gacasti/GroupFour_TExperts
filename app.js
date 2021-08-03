@@ -10,6 +10,7 @@ var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 var thankyouRouter = require('./routes/thankyou');
 var contactusRouter = require('./routes/contactus');
+var packageRouter = require('./routes/package');
 
 const HC_MONGO_COMPASS_URL = "mongodb://localhost:27017/travelexperts";
 const HC_MONGO_ATLAS_URL = "mongodb+srv://gacasti:1234321@cluster0.jg6vs.mongodb.net/travelexperts?retryWrites=true&w=majority";
@@ -88,6 +89,7 @@ app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/thankyou', thankyouRouter);
 app.use('/contactus', contactusRouter);
+app.use('/package', packageRouter);
 
 
 

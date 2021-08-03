@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  h1= title
+    p Packages #{title}
+    //- ul 
+    //-   each package in packages 
+    //-     li 
+    //-       h4= package.PkgName 
+    //-       p= package.PkgDesc
+    //-       p= package.PkgStartDate
+    //-       p= package.PkgEndDate
+    //-       p #{package.PkgBasePrice}
+    //-       p #{package.PkgAgencyCommission}
+          //- click on a button for more package detail pop up
+          //- have a button to add package
+
+
+  .container
+    h2.bg-info Our Packages
+      .row
+        each pack in package
+          .card.col-lg-3.col-md-4.col-sm-12
+            img.card-img-top(src=prod.image height="200")
+            .card-body
+              h5.card-title= pack.PkgName 
+              h6.card-text
+                | description: #{pack.PkgDesc}
+                | Price: #{pack.PkgBasePrice}
+      a.btn.btn-primary.col-12(href='/add/package') ADD
+      //check out line 22 error & fix
