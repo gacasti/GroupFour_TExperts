@@ -69,6 +69,7 @@ module.exports.init = function (app) {
     // After login, adds the user object to locals.currentUser which is accesible in the .pug files
     app.use((req, res, next) => {
         res.locals.currentUser = req.user;
+        console.log(`Current User is: ${res.locals.currentUser}`);
         next();
     });
 

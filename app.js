@@ -21,18 +21,26 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+// Middleware needs to be declared before the end points
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/register', registerRouter);
-app.use('/login', loginRouter);
-app.use('/thankyou', thankyouRouter);
-app.use('/contactus', contactusRouter);
+// -------------------------------------------------------------
+// For Passport.js
+require("./my-passport").init(app);
+// -------------------------------------------------------------
+//  Put the messages in the res.locals
+app.use((req, res, next) => {
+  res.locals.message = req.session.msg; // Read the message from the session variable
+  req.session.msg = null;
+  next();
+});
+
+
+
 
 // to replace prohibited characters with _, use:
 app.use(
@@ -62,16 +70,7 @@ db.once("open", function () {
   console.log(`we are connected to the ${db.name} database ...`);
 });
 
-// -------------------------------------------------------------
-// For Passport.js
-require("./my-passport").init(app);
-// -------------------------------------------------------------
-//  Put the messages in the res.locals
-app.use((req, res, next) => {
-  res.locals.message = req.session.msg; // Read the message from the session variable
-  req.session.msg = null;
-  next();
-});
+
 // -------------------------------------------------------------
 // Proxy the dash request to the Python server
 app.all(/(data|_dash|_reload)\S*/, require("./routes/data-proxy"));
@@ -80,6 +79,15 @@ app.all(/(data|_dash|_reload)\S*/, require("./routes/data-proxy"));
 // app.use("/", indexRouter);
 // app.use("/users", usersRouter);
 // app.use("/post", postRouter);
+
+
+// Endpoints need to come in after the middleware
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/register', registerRouter);
+app.use('/login', loginRouter);
+app.use('/thankyou', thankyouRouter);
+app.use('/contactus', contactusRouter);
 
 
 
