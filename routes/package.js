@@ -10,22 +10,16 @@ const { Package } = require("../models/packageModel");
 
 /* GET all list of all packages */
 router.get("/", function (req, res, next) {
-  // const message = req.query.msg;
-  // const message = req.session.msg; // Read the message from the session variable
-  // req.session.msg = null; // Delete the message, as we no longer need it
+  // Read the packages table from db
   Package.find()
-    //.populate("user") //This populates the user id with actual user information!
+    //.populate("packages")
     .exec(function (err, packages) {
       if (err) throw err;
       res.render("package", { listOfPackages: packages });
     });
 });
 
-/* GET the add form. */
-router.get("/add", function (req, res, next) {
-  res.render("addpackage");
-});
-// Process the added product data
+// We could use the following to create packages.
 router.post("/add", function (req, res, next) {
   const data = req.body;
   const package = new Package(data);

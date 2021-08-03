@@ -3,19 +3,6 @@ extends layout
 block content
   h1= title
     p Packages #{title}
-    //- ul 
-    //-   each package in packages 
-    //-     li 
-    //-       h4= package.PkgName 
-    //-       p= package.PkgDesc
-    //-       p= package.PkgStartDate
-    //-       p= package.PkgEndDate
-    //-       p #{package.PkgBasePrice}
-    //-       p #{package.PkgAgencyCommission}
-          //- click on a button for more package detail pop up
-          //- have a button to add package
-
-
   .container
     ul
     each pack in listOfPackages 
