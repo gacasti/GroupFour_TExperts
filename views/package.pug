@@ -13,5 +13,14 @@ block content
         p= pack.PkgEndDate
         p #{pack.PkgBasePrice} CAD
         p #{pack.PkgAgencyCommission} CAD
-      a.btn.btn-primary.col-12(href='/') ADD
-      //check out line 22 error & fix
+
+        if currentUser && currentUser.role == 'customer'
+          a.btn.btn-primary.col-12(href='/') Purchase 
+        if currentUser && currentUser.role == 'agent'
+          a.btn.btn-primary(href='/') Purchase Package
+          a.btn.btn-warning(href='/') Create Package
+        if !currentUser
+          h5 You need to register or login to purchase package
+          a.btn.btn-primary(href='register') Register
+          a.btn.btn-primary(href='login') Log In
+          //check out line 22 error & fix

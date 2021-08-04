@@ -3,13 +3,14 @@ nav.navbar.navbar-expand-lg.bg-info.navbar-light.py-4.mb-0.fixed-top
           a.navbar-brand(href='/')
             img(src='images/TELogo2.gif' width='300' height='75' alt='')
           if currentUser
-              span Logged in as: #{currentUser.username} 
+              span Welcome: #{currentUser.username} (#{currentUser.role})
           button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#temenu')
             span.navbar-toggler-icon
           #temenu.collapse.navbar-collapse
             ul.navbar-nav.ms-auto
-              li.nav-item
-                a.nav-link.mt-2.text-lg(href='register') Register
+              if !currentUser 
+                li.nav-item
+                  a.nav-link.mt-2.text-lg(href='register') Register
               li.nav-item
                 a.nav-link.mt-2.text-lg(href='/package') Packages
               li.nav-item
