@@ -12,7 +12,6 @@ block content
         <li class="list-group-item">#{pack.PkgBasePrice} CAD</li>
         <li class="list-group-item">#{pack.PkgAgencyCommission} CAD</li>
       </ul>
-
         if currentUser && currentUser.role == 'customer'
           a.btn.btn-outline-primary.col-12(href='/') Purchase 
         if currentUser && currentUser.role == 'agent'
@@ -22,4 +21,23 @@ block content
           a.btn.btn-outline-info(href='register') Register
           a.btn.btn-outline-success(href='login') Log In
           
+    .container
+      h2.text-center.text-dark Our Pakages 
+       .row.g-4
+        .col-md-6.col-lg-3.col-sm-6
+          each pack in listOfPackages
+            .card.bg-light
+              .card-body.text-right
+                img.square(src=pack.ImgPath mb-3='' alt='' width='300' height='200')
+                h5.card-title.mb-3.mr-2 #{pack.PkgName} 
+                p.card-text
+                  <ul class="list-group">
+                    <li class="list-group-item">#{pack.PkgDesc}</li>
+                    <li class="list-group-item">#{pack.PkgStartDate}</li>
+                    <li class="list-group-item">#{pack.PkgEndDate}</li>
+                    <li class="list-group-item">#{pack.PkgBasePrice} CAD</li>
+                    <li class="list-group-item">#{pack.PkgAgencyCommission} CAD</li>
+                  </ul>
+                                  
+  
           //check out line 22 error & fix

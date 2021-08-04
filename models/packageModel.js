@@ -40,6 +40,10 @@ const packageSchema = new mongoose.Schema({
         required: "Agency package commission",
         trim: true,
     },
+    ImgPath: {
+        type: String,
+        trim: true,
+    }
 });
 
 packageSchema.plugin(uniqueValidator);
