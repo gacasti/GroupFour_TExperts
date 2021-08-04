@@ -1,26 +1,25 @@
 extends layout
 
 block content
-  h1= title
-    p Packages #{title}
-  .container
-    ul
+    h3 Packages
+    .container
     each pack in listOfPackages 
-      li
-        h4= pack.PkgName
-        p= pack.PkgDesc
-        p= pack.PkgStartDate
-        p= pack.PkgEndDate
-        p #{pack.PkgBasePrice} CAD
-        p #{pack.PkgAgencyCommission} CAD
+      <ul class="list-group mt-4">
+        <li class="list-group-item active fs-5" aria-current="true">#{pack.PkgName} </li>
+        <li class="list-group-item">#{pack.PkgDesc}</li>
+        <li class="list-group-item">#{pack.PkgStartDate}</li>
+        <li class="list-group-item">#{pack.PkgEndDate}</li>
+        <li class="list-group-item">#{pack.PkgBasePrice} CAD</li>
+        <li class="list-group-item">#{pack.PkgAgencyCommission} CAD</li>
+      </ul>
 
         if currentUser && currentUser.role == 'customer'
-          a.btn.btn-primary.col-12(href='/') Purchase 
+          a.btn.btn-outline-primary.col-12(href='/') Purchase 
         if currentUser && currentUser.role == 'agent'
-          a.btn.btn-primary(href='/') Purchase Package
-          a.btn.btn-warning(href='/') Create Package
+          a.btn.btn-outline-primary(href='/') Purchase Package
+          a.btn.btn-outline-warning(href='/') Create Package
         if !currentUser
-          h5 You need to register or login to purchase package
-          a.btn.btn-primary(href='register') Register
-          a.btn.btn-primary(href='login') Log In
+          a.btn.btn-outline-info(href='register') Register
+          a.btn.btn-outline-success(href='login') Log In
+          
           //check out line 22 error & fix
