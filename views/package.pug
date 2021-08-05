@@ -13,7 +13,7 @@ block content
         <li class="list-group-item">#{pack.PkgAgencyCommission} CAD</li>
       </ul>
         if currentUser && currentUser.role == 'customer'
-          a.btn.btn-outline-primary.col-12(href='/') Purchase 
+          a.btn.btn-outline-primary.col-12(href='/package/add'+ pack.PackageId) Purchase 
         if currentUser && currentUser.role == 'agent'
           a.btn.btn-outline-primary(href='/') Purchase Package
           a.btn.btn-outline-warning(href='/') Create Package

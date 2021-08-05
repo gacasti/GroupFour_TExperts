@@ -1,21 +1,15 @@
 var express = require('express');
 var router = express.Router();
-const { Package } = require("../models/packageModel");
+const { Bookingdetail } = require("../models/bookingdetailModel");
 
-/* GET package page. */
-// router.get('/', function (req, res, next) {
-//   // res.render('index', { title: 'Travel Experts', tcGreetings: rg.greet() });
-//   res.render('package');
-// });
-
-/* GET all list of all packages */
+/* GET all list of all booking details */
 router.get("/", function (req, res, next) {
   // Read the packages table from db
-  Package.find()
+  Bookingdetail.find()
     //.populate("packages")
     .exec(function (err, packages) {
       if (err) throw err;
-      res.render("package", { listOfPackages: packages });
+      res.render("bookingdetail", { listOfBookingdetail: bookingdetail });
     });
 });
 
@@ -24,7 +18,7 @@ router.post("/add", function (req, res, next) {
   const data = req.body;
   const package = new Package(data);
   package.save(function (err) {
-    if (err) return processErrors(err, "addpackage", req, res);
+    if (err) return processErrors(err, "addbookingdetail", req, res);
     res.redirect("/");
   });
 });

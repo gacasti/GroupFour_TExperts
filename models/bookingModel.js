@@ -15,7 +15,7 @@ const bookingSchema = new mongoose.Schema({
         trim: true,
     },
     BookingNo: {
-        type: Number,
+        type: String,
         required: "Booking Number",
         trim: true,
         unique: "Booking ID should be unique",
@@ -25,22 +25,14 @@ const bookingSchema = new mongoose.Schema({
         required: "Number of travelers",
         trim: true,
     },
-    CustomerId: {
-        type: Number,
-        required: "Required",
-        trim: true,
-        unique: "Booking ID should be unique",
-    },
     TripTypeId: {
         type: Number,
         required: "Trip type",
         trim: true,
     },
-    PackageId: {
-        type: Number,
-        required: "Package Id",
-        trim: true,
-    },
+    CustomerId: { type: bookingSchema.Types.ObjectId, ref: "User" },
+    PackageId: { type: bookingSchema.Types.ObjectId, ref: "Package" },
+
 });
 
 bookingSchema.plugin(uniqueValidator);
