@@ -3,19 +3,9 @@ extends layout
 block content
 
 
-    h3 Bookings
+    h3
     .container
         //added "edit booking" and "add package" as placeholders
-        if currentUser && currentUser.role == 'customer'
-          a.btn.btn-outline-primary.col-12(href='/') Edit Booking 
-        if currentUser && currentUser.role == 'agent'
-          a.btn.btn-outline-primary(href='/') Edit Booking 
-          a.btn.btn-outline-warning(href='/') Add Package
-        if !currentUser
-          a.btn.btn-outline-info(href='register') Register
-          a.btn.btn-outline-success(href='login') Log In
-
-
     form(action='/' method='post')
       .col-md-6
         label.form-label(for='inputbookingdate') Booking Date
@@ -34,7 +24,7 @@ block content
         input#inputdestination.form-control(type='text' placeholder='Destination')
       .col-12
         label.form-label(for='inputbaseprice') Base Price
-        input#inputbaseprice.form-control(type='text' placeholder='Base price')
+        input#inputbaseprice.form-control(type='text' placeholder='Base price') 
       .col-12
         button.btn.btn-primary(type='submit') Book Now!
 

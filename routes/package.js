@@ -1,19 +1,19 @@
 var express = require('express');
 var router = express.Router();
-const { Bookingdetail } = require("../models/bookingdetailModel");
+const { Package } = require("../models/packageModel");
 
-/* GET all list of all booking details */
+/* GET all list of all packages for a registered customer to purchase */
 router.get("/", function (req, res, next) {
   // Read the packages table from db
-  Bookingdetail.find()
+  Package.find()
     //.populate("packages")
     .exec(function (err, packages) {
       if (err) throw err;
-      res.render("bookingdetail", { listOfBookingdetail: bookingdetail });
+      res.render("package", { listOfPackages: packages });
     });
 });
 
-// We could use the following to create packages.
+// We could use the following to create packages in later releases.
 router.post("/add", function (req, res, next) {
   const data = req.body;
   const package = new Package(data);

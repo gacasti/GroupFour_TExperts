@@ -16,9 +16,8 @@ const bookingSchema = new mongoose.Schema({
     },
     BookingNo: {
         type: String,
-        required: "Booking Number",
         trim: true,
-        unique: "Booking ID should be unique",
+        default: "LJ888",
     },
     TravelerCount: {
         type: Number,
@@ -27,11 +26,11 @@ const bookingSchema = new mongoose.Schema({
     },
     TripTypeId: {
         type: Number,
-        required: "Trip type",
+        default: "B",
         trim: true,
     },
-    CustomerId: { type: bookingSchema.Types.ObjectId, ref: "User" },
-    PackageId: { type: bookingSchema.Types.ObjectId, ref: "Package" },
+    CustomerId: { type: Number, ref: "User", default: null },
+    PackageId: { type: Number, ref: "Package", default: null },
 
 });
 
