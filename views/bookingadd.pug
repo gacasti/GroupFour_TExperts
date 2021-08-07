@@ -3,63 +3,64 @@ extends layout
 block content
 
 
-    h3
-    .container
-        //added "edit booking" and "add package" as placeholders
-    form(action='/' method='post')
-      .col-md-6
-        label.form-label(for='inputbookingdate') Booking Date
-        input#inputbookingdate.form-control(type='text')
-      .col-12
-        label.form-label(for='inputtravlercount') Traveler Count
-        input#inputtravlercount.form-control(type='text' placeholder='Number of travelers')
-      .col-12
-        label.form-label(for='inputripstart') Trip Start
-        input#inputripstart.form-control(type='text' placeholder='Select trip start')
-      .col-12
-        label.form-label(for='inputtripend') Trip End
-        input#inputtripend.form-control(type='text' placeholder='Trip end')
-      .col-12
-        label.form-label(for='inputdestination') Destination
-        input#inputdestination.form-control(type='text' placeholder='Destination')
-      .col-12
-        label.form-label(for='inputbaseprice') Base Price
-        input#inputbaseprice.form-control(type='text' placeholder='Base price') 
-      .col-12
-        button.btn.btn-primary(type='submit') Book Now!
+  h3 
+  .container
+
+    //added "edit booking" and "add package" as placeholders
+  form(action='/' method='post')
+    .col-md-6
+      label.form-label(for='inputbookingdate') Booking Date
+      input#inputbookingdate.form-control(type='text')
+    .col-6
+      label.form-label(for='inputtravlercount') Traveler Count
+      input#inputtravlercount.form-control(type='text' placeholder='Number of travelers')
+    .col-6
+      label.form-label(for='inputripstart') Trip Start
+      input#inputripstart.form-control(type='text' placeholder='Select trip start')
+    .col-6
+      label.form-label(for='inputtripend') Trip End
+      input#inputtripend.form-control(type='text' placeholder='Trip end')
+    .col-6
+      label.form-label(for='inputdestination') Destination
+      input#inputdestination.form-control(type='text' placeholder='Destination')
+    .col-6
+      label.form-label(for='inputbaseprice') Base Price
+      input#inputbaseprice.form-control(type='text' placeholder='Base price' value=pkg && pkg.PkgBasePrice) 
+    .col-6
+      button.btn.btn-primary(type='submit') Book Now!
 
 
 
 
 
-      // Form with calendar 
-      //ref site: https://formden.com/blog/date-picker for any troubleshooting
-      .date-picker
-        .container-fluid
-          .row
-            .col-md-6.col-sm-6.col-xs-12
-              form(method='post' action="###")
-                .form-group
-                  // Date input
-                  label.control-label(for='date') Date
-                  input#date.form-control(name='date' placeholder='MM/DD/YYY' type='text')
-                .form-group
-                  // Submit button
-                  button.btn.btn-primary(name='submit' type='submit') Submit
+    // Form with calendar 
+    //ref site: https://formden.com/blog/date-picker for any troubleshooting
+    .date-picker
+      .container-fluid
+        .row
+          .col-md-6.col-sm-6.col-xs-12
+            form(method='post' action="###")
+              .form-group
+                // Date input
+                label.control-label(for='date') Date
+                input#date.form-control(name='date' placeholder='MM/DD/YYY' type='text')
+              .form-group
+                // Submit button
+                button.btn.btn-primary(name='submit' type='submit') Submit
 
-      //setup and initialize datepicker plugin
-      script.
-        $(document).ready(function(){
-          var date_input=$('input[name="date"]'); //our date input has the name "date"
-          var container=$('.date-picker form').length>0 ? $('.date-picker form').parent() : "body";
-          var options={
-          format: 'mm/dd/yyyy',
-          container: container,
-          todayHighlight: true,
-          autoclose: true,
-          };
-          date_input.datepicker(options);
-        })
+    //setup and initialize datepicker plugin
+    script.
+      $(document).ready(function(){
+        var date_input=$('input[name="date"]'); //our date input has the name "date"
+        var container=$('.date-picker form').length>0 ? $('.date-picker form').parent() : "body";
+        var options={
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+        };
+        date_input.datepicker(options);
+      })
 
 
   

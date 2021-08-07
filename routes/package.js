@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const { Package } = require("../models/packageModel");
 
-/* GET all list of all packages for a registered customer to purchase */
+/* GET a list of all packages available from the database */
 router.get("/", function (req, res, next) {
   // Read the packages table from db
   Package.find()

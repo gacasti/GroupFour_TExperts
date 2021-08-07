@@ -1,17 +1,20 @@
 var express = require('express');
+const mongoose = require('mongoose');
 var router = express.Router();
 const { Booking } = require("../models/bookingModel");
 const { Package } = require("../models/packageModel");
 const { User } = require("../models/userModel");
 
 
+
 /* GET all list of all packages */
-router.get("/add/:pkgid", function (req, res, next) {
-  const PackageId = req.params.pkgid;
-  console.log(`This is the value of PackageID ==> ${PackageId}`);
-  Package.findById(PackageId, (err, pkg) => {
+router.get("/add/:_id", function (req, res, next) {
+  const pkgid = req.params._id;
+
+  Package.findById(pkgid, (err, pkg) => {
     if (err) console.log(err);
     // provide the form to fill a booking info
+    // console.log(`This is the the package name: ==> ${pkg.PkgName}`);
     res.render("bookingadd", { pkg });
   });
 });
@@ -23,7 +26,7 @@ router.post("/add", function (req, res, next) {
   const userId = user.userid;
 
   booking.CustomerId = userId;
-  booking.PackageId = packagId;
+  booking.PackageId = PackageId;
 
   booking.save(function (err) {
     if (err) return processErrors(err, "booking", req, res);

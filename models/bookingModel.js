@@ -1,6 +1,7 @@
 // Require the mongoose module
 const mongoose = require('mongoose');
 const uniqueValidator = require("mongoose-unique-validator");
+const { Schema } = mongoose;
 
 const bookingSchema = new mongoose.Schema({
     BookingId: {
