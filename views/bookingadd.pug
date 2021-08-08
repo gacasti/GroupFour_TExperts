@@ -1,66 +1,43 @@
 extends layout
 
 block content
-
-
-  h3 
+  //debug test
+  //- p #{pkg}
   .container
+    
+    h2.bg-info Our Package
 
-    //added "edit booking" and "add package" as placeholders
-  form(action='/' method='post')
-    .col-md-6
-      label.form-label(for='inputbookingdate') Booking Date
-      input#inputbookingdate.form-control(type='text')
-    .col-6
-      label.form-label(for='inputtravlercount') Traveler Count
-      input#inputtravlercount.form-control(type='text' placeholder='Number of travelers')
-    .col-6
-      label.form-label(for='inputripstart') Trip Start
-      input#inputripstart.form-control(type='text' placeholder='Select trip start')
-    .col-6
-      label.form-label(for='inputtripend') Trip End
-      input#inputtripend.form-control(type='text' placeholder='Trip end')
-    .col-6
-      label.form-label(for='inputdestination') Destination
-      input#inputdestination.form-control(type='text' placeholder='Destination')
-    .col-6
-      label.form-label(for='inputbaseprice') Base Price
-      input#inputbaseprice.form-control(type='text' placeholder='Base price' value=pkg && pkg.PkgBasePrice) 
-    .col-6
-      button.btn.btn-primary(type='submit') Book Now!
+      if !pkg
+        h3 No such package
+      else 
+        .card.col-sm-12
+          img.card-img-top.mx-auto(src=pkg.ImgPath style=" max-width:400px;")
+          .card-body
+            h3.card-title= pkg && pkg.PkgName
+            h5.card-text
+              | Description: #{pkg && pkg.PkgDesc}
+            h5.card-text
+              | Price: $#{pkg && pkg.PkgBasePrice} CAD
+            h6.card-text
+              | Trip Start: #{pkg && pkg.PkgStartDate}
+            h6.card-text
+              | Trip End: #{pkg && pkg.PkgEndDate}
+          p.card-text
+            //should the action here redirect to a confirmation page and then the customer's page to see all their packages
+            form(action='/package/buy' method='post')
+              .row
+                .col-sm-6
+                  h6.card-text
+                    | Number of travelers:
+                    label.form-label(for='inputtravlercount')
+                    input#inputtravlercount.mx-3(name='quantity' type='number' min=1 value=1)
+                    input(type='hidden' name="packageId" value=pkg && pkg.PkgBasePrice)
+                .col-sm-6
+                  button.btn.btn-success.col-12(type='submit') Book Now
 
+                  //edit and delete buttons should be for customer's page? This is only strictly for adding packages to their page first
+          //- p.card-text
+          //-   a.btn.btn-primary.col-12(href='/packge/edit/'+ pkg._id) Edit
+          //- p.card-text
+          //-   a.btn.btn-danger.col-12(href='/package/delete/'+ pkg._id) Delete
 
-
-
-
-    // Form with calendar 
-    //ref site: https://formden.com/blog/date-picker for any troubleshooting
-    .date-picker
-      .container-fluid
-        .row
-          .col-md-6.col-sm-6.col-xs-12
-            form(method='post' action="###")
-              .form-group
-                // Date input
-                label.control-label(for='date') Date
-                input#date.form-control(name='date' placeholder='MM/DD/YYY' type='text')
-              .form-group
-                // Submit button
-                button.btn.btn-primary(name='submit' type='submit') Submit
-
-    //setup and initialize datepicker plugin
-    script.
-      $(document).ready(function(){
-        var date_input=$('input[name="date"]'); //our date input has the name "date"
-        var container=$('.date-picker form').length>0 ? $('.date-picker form').parent() : "body";
-        var options={
-        format: 'mm/dd/yyyy',
-        container: container,
-        todayHighlight: true,
-        autoclose: true,
-        };
-        date_input.datepicker(options);
-      })
-
-
-  
