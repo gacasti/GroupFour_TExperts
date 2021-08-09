@@ -8,11 +8,14 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
-var thankyouRouter = require('./routes/thankyou');
+var thankyouregRouter = require('./routes/thankyou-reg');
+var thankyouconRouter = require('./routes/thankyou-con');
+var underconstRouter = require('./routes/underconst');
 var contactusRouter = require('./routes/contactus');
 var packageRouter = require('./routes/package');
 var bookingRouter = require('./routes/booking');
 var bookingdetailRouter = require('./routes/bookingdetail');
+var mgrDataRouter = require("./routes/mgrData");
 
 const HC_MONGO_COMPASS_URL = "mongodb://localhost:27017/travelexperts";
 const HC_MONGO_ATLAS_URL = "mongodb+srv://gacasti:1234321@cluster0.jg6vs.mongodb.net/travelexperts?retryWrites=true&w=majority";
@@ -89,11 +92,14 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
-app.use('/thankyou', thankyouRouter);
+app.use('/thankyou-reg', thankyouregRouter);
+app.use('/thankyou-con', thankyouconRouter);
+app.use('/underconst', underconstRouter);
 app.use('/contactus', contactusRouter);
 app.use('/package', packageRouter);
 app.use('/booking', bookingRouter);
 app.use('/bookingdetail', bookingdetailRouter);
+app.use('/mgrDAta', mgrDataRouter);
 
 
 

@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const uniqueValidator = require("mongoose-unique-validator");
 
 const packageSchema = new mongoose.Schema({
-    _id: {},
+    _id: { type: Number },
     PackageId: {
         type: Number,
         required: "Required",

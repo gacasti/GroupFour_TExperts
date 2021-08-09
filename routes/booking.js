@@ -11,7 +11,7 @@ const { User } = require("../models/userModel");
 router.get("/add/:_id", function (req, res, next) {
   const pkgid = req.params._id;
 
-  Package.findById(pkgid, (err, pkg) => {
+  Package.findOne({ PackageId: pkgid }, (err, pkg) => {
     if (err) console.log(err);
     // provide the form to fill a booking info
     // console.log(`This is the the package name: ==> ${pkg.PkgName}`);
