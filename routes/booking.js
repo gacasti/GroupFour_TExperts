@@ -15,6 +15,7 @@ router.get("/add/:_id", function (req, res, next) {
     if (err) console.log(err);
     // provide the form to fill a booking info
     // console.log(`This is the the package name: ==> ${pkg.PkgName}`);
+    console.log(pkg)
     res.render("bookingadd", { pkg });
   });
 });
