@@ -29,6 +29,11 @@ router.post('/', function (req, res, next) {
         // Replace plain password with hashed password
         user.password = hashedPassword;
 
+        // Generate a random number for the customer Id
+        const usrId = Math.floor(Math.random() * 100000000);
+        //  Create a customer object
+        user.userid = usrId;
+
         // Store the User object in a the DB
         user.save((err, result) => {
             if (err) {

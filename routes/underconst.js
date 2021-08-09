@@ -3,9 +3,9 @@ var router = express.Router();
 
 /* GET Thank you page. */
 router.get('/', function (req, res, next) {
-    res.render('thankyou', {
-        title: 'Thank you',
-        passedMsg: 'Thank you for registering ...'
+    res.render('underconst', {
+        title: 'Under Construction',
+        passedMsg: 'Sorry, this feature will be implemented in a future release ...'
     });
 });
 

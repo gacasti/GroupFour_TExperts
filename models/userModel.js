@@ -10,6 +10,11 @@ const userSchema = new mongoose.Schema({
         unique: "That user name is taken, please a differnt user name",
         lowercase: true,
     },
+    userid: {
+        type: Number,
+        unique: "Userid needs to be unique.  Please try again ...",
+        default: null,
+    },
     firstname: {
         type: String,
         required: "Please enter your first name.",

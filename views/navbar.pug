@@ -1,7 +1,7 @@
 nav.navbar.navbar-expand-lg.bg-info.navbar-light.py-4.mb-0.fixed-top
         .container
           a.navbar-brand(href='/')
-            img(src='images/TE_Logo.png' width= '300' height= '75' alt='')
+            img(src='/images/TELogo2.gif' width='300' height='75' alt='')
           if currentUser
               span Welcome: #{currentUser.username} (#{currentUser.role})
           button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#temenu')
@@ -10,12 +10,12 @@ nav.navbar.navbar-expand-lg.bg-info.navbar-light.py-4.mb-0.fixed-top
             ul.navbar-nav.ms-auto
               if !currentUser 
                 li.nav-item
-                  a.nav-link.mt-2.text-lg(href='register') Register
+                  a.nav-link.mt-2.text-lg(href='/register') Register
               li.nav-item
                 a.nav-link.mt-2.text-lg(href='/package') Packages
               if !currentUser || currentUser.role == 'customer'
                 li.nav-item
-                  a.nav-link.mt-2(href='contactus') Contact Us
+                  a.nav-link.mt-2(href='/contactus') Contact Us
               if currentUser
                 li.nav-item
                 a.nav-link.mt-2(href="/log-out") Log Out
@@ -24,4 +24,7 @@ nav.navbar.navbar-expand-lg.bg-info.navbar-light.py-4.mb-0.fixed-top
                 a.nav-link.mt-2(href='login') Log In
               if currentUser && currentUser.role == "manager"
                 li.nav-item
-                a.nav-link.mt-2(href='/') Performance Data
+                a.nav-link.mt-2(href='/mgrData') Performance Data
+              if currentUser && currentUser.role == "agent"
+                li.nav-item
+                a.nav-link.mt-2(href='/agentData') Performance Data
