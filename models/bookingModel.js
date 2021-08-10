@@ -1,7 +1,6 @@
 // Require the mongoose module
 const mongoose = require('mongoose');
 const uniqueValidator = require("mongoose-unique-validator");
-const { Schema } = mongoose;
 
 const bookingSchema = new mongoose.Schema({
     _id: { type: Number },
@@ -31,8 +30,8 @@ const bookingSchema = new mongoose.Schema({
         default: "B",
         trim: true,
     },
-    CustomerId: { type: Number, ref: "User", default: null },
-    PackageId: { type: Number, ref: "Package", default: null }
+    CustomerId: { type: Number, ref: "User" },
+    PackageId: { type: Number, ref: "Package" }
 });
 
 bookingSchema.plugin(uniqueValidator);

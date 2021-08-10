@@ -23,7 +23,8 @@ block content
               h6
                 | Total Price: #{booking.PackageId.PkgBasePrice * booking.TravelerCount}
               p.card-text
-                form(action='/'+booking._id method='get')
+                form(action='/booking/cancel/'+booking._id method='get')
                   .col-sm-12
-                    button.btn.btn-success.col-12(type='submit') Return
+                    button.btn.btn-success.col-12(type='submit') Cancel
+                  input(type='hidden' name="CustomerId" value=booking && booking.CustomerId)
               
