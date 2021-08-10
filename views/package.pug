@@ -2,56 +2,31 @@ extends layout
 
 block content
     h3 Packages
-       
-    section#packages.packages
-        h1.heading
-          span P
-          span a
-          span c
-          span k
-          span a
-          span g
-          span e
-          span s
-        .box-container
-            each _package in listOfPackages 
-                .box
-                    img(src=_package.ImgPath alt='')
-                    .content
-                        h3
-                            i.fas.fa-map-marker-alt &nbsp; #{_package.country}
-                        p #{_package.description}
-                        .stars
-                            each _ in Array(_package.star)
-                                i.fas.fa-star
-                        .price
-                            | $#{_package.price} &nbsp;
-                            span $#{_package.priceBeforeDiscount}
-                        a.btn(href='#') book now
-      if listOfPackages
-      .row.g-4
-        .col-md-6.col-lg-3.col-sm-12
-          each pack in listOfPackages
-            .card.bg-light
-              .card-body.text-right
-                img.card-img-top.mx-auto(src=pack.ImgPath style="max-width:400px;") 
-                <ul class="list-group mt-4">
-                  <li class="list-group-item active fs-5" aria-current="true">#{pack.PkgName} </li>
-                  <li class="list-group-item">#{pack.PkgDesc}</li>
-                  <li class="list-group-item">#{pack.PkgStartDate}</li>
-                  <li class="list-group-item">#{pack.PkgEndDate}</li>
-                  <li class="list-group-item">$#{pack.PkgBasePrice} CAD</li>
-                  //- <li class="list-group-item">#{pack.PkgAgencyCommission} CAD</li>
-                  //- <li class="list-group-item">#{pack._id} ID</li>
-                </ul>
-            if currentUser && currentUser.role == 'customer'
-            a.btn.btn-outline-success.col-12.mt-4(href=add ? '/' : '/booking/add/' + (pack && pack._id)) Check it out!
-                //a.btn.btn-outline-primary.col-12.mt-4(href=add ? '/' : '/booking/add/' + (pack && pack.PackageId)) Purchase
-            if currentUser && currentUser.role == 'agent'
-              a.btn.btn-outline-success(href='/') Purchase Package 
-              a.btn.btn-outline-warning(href='/underconst') Create Package
-            if !currentUser
-              a.btn.btn-outline-info(href='register') Register
-              a.btn.btn-outline-secondary(href='login') Log In
+
+    if listOfPackages
+    .row.g-4
+      .col-md-6.col-lg-3.col-sm-12
+        each pack in listOfPackages
+          .card.bg-light
+            .card-body.text-right
+              img.card-img-top.mx-auto(src=pack.ImgPath style="max-width:400px;") 
+              <ul class="list-group mt-4">
+                <li class="list-group-item active fs-5" aria-current="true">#{pack.PkgName} </li>
+                <li class="list-group-item">#{pack.PkgDesc}</li>
+                <li class="list-group-item">#{pack.PkgStartDate}</li>
+                <li class="list-group-item">#{pack.PkgEndDate}</li>
+                <li class="list-group-item">$#{pack.PkgBasePrice} CAD</li>
+                //- <li class="list-group-item">#{pack.PkgAgencyCommission} CAD</li>
+                //- <li class="list-group-item">#{pack._id} ID</li>
+              </ul>
+          if currentUser && currentUser.role == 'customer'
+          a.btn.btn-outline-success.col-12.mt-4(href=add ? '/' : '/booking/add/' + (pack && pack._id)) Check it out!
+              //a.btn.btn-outline-primary.col-12.mt-4(href=add ? '/' : '/booking/add/' + (pack && pack.PackageId)) Purchase
+          if currentUser && currentUser.role == 'agent'
+            a.btn.btn-outline-success(href='/') Purchase Package 
+            a.btn.btn-outline-warning(href='/underconst') Create Package
+          if !currentUser
+            a.btn.btn-outline-info(href='register') Register
+            a.btn.btn-outline-secondary(href='login') Log In
           
 
