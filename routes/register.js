@@ -33,7 +33,7 @@ router.post('/', function (req, res, next) {
         const usrId = Math.floor(Math.random() * 100000000);
         //  Create a customer object
         user.userid = usrId;
-
+        user._id = usrId;
         // Store the User object in a the DB
         user.save((err, result) => {
             if (err) {

@@ -23,7 +23,7 @@ block content
               h6
                 | Total Price: #{booking.PackageId.PkgBasePrice * booking.TravelerCount}
               p.card-text
-                form(action='/booking/return/'+purchase._id method='get')
+                form(action='/'+booking._id method='get')
                   .col-sm-12
                     button.btn.btn-success.col-12(type='submit') Return
               

@@ -32,8 +32,7 @@ const bookingSchema = new mongoose.Schema({
         trim: true,
     },
     CustomerId: { type: Number, ref: "User", default: null },
-    PackageId: { type: Number, ref: "Package", default: null },
-
+    PackageId: { type: Number, ref: "Package", default: null }
 });
 
 bookingSchema.plugin(uniqueValidator);

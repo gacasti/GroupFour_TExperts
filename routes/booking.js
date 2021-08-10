@@ -36,19 +36,19 @@ router.post("/add", function (req, res, next) {
 });
 
 
-// Process the buy product data
+// Create a booking
 router.post("/book", function (req, res, next) {
   const booking = new Booking();
   const bookingDetail = new Bookingdetail();
   // ****** Assign values for booking object ******
   const b_Id = Math.floor(Math.random() * 1000000);
   // const currUser = new User();
-  //currUser = user;
+  currUser = req.body.CustomerId;
   //  Create a customer object
   booking.BookingId = 1000 + b_Id;
   booking._id = 1000 + b_Id;
-  //booking.CustomerId = user.userId;
-  booking.CustomerId = 98335459;
+  // booking.CustomerId = req.user?.username.userid;
+  booking.CustomerId = currUser;
   booking.PackageId = req.body.PackageId;
   booking.TravelerCount = req.body.TravelerCount;
   booking.BookingDate = moment(new Date().toJSON().slice(0, 10));
@@ -57,17 +57,19 @@ router.post("/book", function (req, res, next) {
 
   booking.save(function (err) {
     if (err) return processErrors(err, "bookingadd", req, res, req.body);
-    res.redirect("/booking/bookings/" + user.userId);
+    res.redirect("/booking/bookings/" + currUser);
   });
 });
 
 /****  Get booking for a specific Customer ***** */
 /* GET the product details page, for the given product Id. */
 router.get("/bookings/:userid", function (req, res, next) {
-  const userid = req.params.userid;
+  const userid = 10222254;
+  console.log(`******* This is the user id from Bookings: ${userid} *********`);
   Booking.find({ CustomerId: userid }, (err, userGBokings) => {
     if (err) console.log(err);
-    res.render("bookings", { userGBokings });
+    console.log(userGBokings);
+    res.render("bookings", { bookings: userGBokings });
   });
 });
 

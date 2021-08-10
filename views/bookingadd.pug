@@ -28,9 +28,11 @@ block content
                 | Number of travelers:
                 label.form-label(for='TravelerCount')
                 input#TravelerCount.mx-3(name='TravelerCount' type='number' min=1 value=1)
-                input(type='hidden' name="packageId" value=pkg && pkg.PkgBasePrice)
-                input(type='hidden' name="packageId" value=pkg && pkg && pkg.PkgStartDate)
-                input(type='hidden' name="packageId" value=pkg && pkg.PkgEndDate)
+                input(type='hidden' name="PackageId" value=pkg && pkg.PackageId)
+                input(type='hidden' name="PkgBasePrice" value=pkg && pkg.PkgBasePrice)
+                input(type='hidden' name="PkgStartDate" value=pkg && pkg && pkg.PkgStartDate)
+                input(type='hidden' name="PkgEndDate" value=pkg && pkg.PkgEndDate)
+                input(type='hidden' name="CustomerId" value=currentUser && currentUser.userid)
             .col-sm-6
               button.btn.btn-success.col-12(type='submit') Book Now
 
