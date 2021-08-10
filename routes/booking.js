@@ -43,7 +43,7 @@ router.post("/book", function (req, res, next) {
   // ****** Assign values for booking object ******
   const b_Id = Math.floor(Math.random() * 1000000);
   // const currUser = new User();
-  // currUser = user;
+  //currUser = user;
   //  Create a customer object
   booking.BookingId = 1000 + b_Id;
   booking._id = 1000 + b_Id;
