@@ -4,6 +4,7 @@ const uniqueValidator = require("mongoose-unique-validator");
 const { Schema } = mongoose;
 
 const bookingSchema = new mongoose.Schema({
+    _id: { type: Number },
     BookingId: {
         type: Number,
         required: "Required",
@@ -26,7 +27,7 @@ const bookingSchema = new mongoose.Schema({
         trim: true,
     },
     TripTypeId: {
-        type: Number,
+        type: String,
         default: "B",
         trim: true,
     },

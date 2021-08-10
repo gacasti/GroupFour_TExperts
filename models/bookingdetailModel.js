@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const uniqueValidator = require("mongoose-unique-validator");
 
 const bookingdetailSchema = new mongoose.Schema({
+    _id: { type: Number },
     BookingdetailId: {
         type: Number,
         required: "Required",
@@ -14,6 +15,7 @@ const bookingdetailSchema = new mongoose.Schema({
         required: "Required",
         trim: true,
         unique: "Itinerary no. should be unique",
+        default: 306,
     },
     Tripstart: {
         type: Date,
@@ -43,36 +45,33 @@ const bookingdetailSchema = new mongoose.Schema({
     AgencyCommission: {
         type: Number,
         required: "Agency booking detail commission",
+        default: 100,
         trim: true,
     },
-    BookingId: {
-        type: Number,
-        required: "Booking Id",
-        trim: true,
-    },
+    BookingId: { type: Number, ref: "Booking", default: null },
     RegionId: {
         type: String,
         required: "Required",
         trim: true,
-        default: 1,
+        default: 'EU',
     },
     ClassId: {
         type: String,
         required: "Class Id",
         trim: true,
-        default: 1,
+        default: "ECN",
     },
     FeeId: {
-        type: Number,
+        type: String,
         required: "Fee Id",
         trim: true,
-        default: 1,
+        default: 'GR',
     },
     ProductSupplierId: {
         type: Number,
         required: "Product supplier Id",
         trim: true,
-        default: 1,
+        default: 14,
     },
 });
 
