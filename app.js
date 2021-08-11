@@ -16,6 +16,7 @@ var packageRouter = require('./routes/package');
 var bookingRouter = require('./routes/booking');
 var bookingdetailRouter = require('./routes/bookingdetail');
 var mgrDataRouter = require("./routes/mgrData");
+var agentDataRouter = require("./routes/agentData");
 
 const HC_MONGO_COMPASS_URL = "mongodb://localhost:27017/travelexperts";
 const HC_MONGO_ATLAS_URL = "mongodb+srv://gacasti:1234321@cluster0.jg6vs.mongodb.net/travelexperts?retryWrites=true&w=majority";
@@ -99,9 +100,8 @@ app.use('/contactus', contactusRouter);
 app.use('/package', packageRouter);
 app.use('/booking', bookingRouter);
 app.use('/bookingdetail', bookingdetailRouter);
-app.use('/mgrDAta', mgrDataRouter);
-
-
+app.use('/mgrData', mgrDataRouter);
+app.use('/agentData', agentDataRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
