@@ -1,4 +1,4 @@
-nav.navbar.navbar-expand-lg.bg-dark.navbar-white.py-3.mb-0.fixed-top
+nav.navbar.navbar-expand-lg.bg-dark.navbar-dark.py-3.mb-0.fixed-top
         .container
           a.navbar-brand(href='/')
             img(src='/images/TE_Logo.png' width='300' height='75' alt='')
@@ -10,24 +10,24 @@ nav.navbar.navbar-expand-lg.bg-dark.navbar-white.py-3.mb-0.fixed-top
             ul.navbar-nav.ms-auto
               if currentUser && currentUser.role == "customer" 
                 li.nav-item
-                  a.nav-link.mt-2.text-lg(href='/booking/bookings/' + + (currentUser && currentUser.userid)) My Bookings
+                  a.nav-link.mt-2.text-lg.h5(href='/booking/bookings/' + + (currentUser && currentUser.userid)) My Bookings
               if !currentUser 
                 li.nav-item
-                  a.nav-link.mt-2.text-lg(href='/register') Register
+                  a.nav-link.mt-2.text-lg.h5(href='/register') Register
               li.nav-item
-                a.nav-link.mt-2.text-lg(href='/package') Packages
+                a.nav-link.mt-2.text-lg.h5(href='/package') Packages
               if !currentUser || currentUser.role == 'customer'
                 li.nav-item
-                  a.nav-link.mt-2(href='/contactus') Contact Us
+                  a.nav-link.mt-2.h5(href='/contactus') Contact Us
               if currentUser
                 li.nav-item
-                a.nav-link.mt-2(href="/log-out") Log Out
+                a.nav-link.mt-2.h5(href="/log-out") Log Out
               else
                 li.nav-item
-                a.nav-link.mt-2(href='login') Log In
+                a.nav-link.mt-2.h5(href='login') Log In
               if currentUser && currentUser.role == "manager"
                 li.nav-item
-                a.nav-link.mt-2(href='/mgrData') Performance Data
+                a.nav-link.mt-2.h5(href='/mgrData') Performance Data
               if currentUser && currentUser.role == "agent"
                 li.nav-item
-                a.nav-link.mt-2(href='/agentData') Performance Data
+                a.nav-link.mt-2.h5(href='/agentData') Performance Data
