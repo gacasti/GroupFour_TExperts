@@ -3,8 +3,8 @@ extends layout
 block content
   
   // Picture Carousel
-  section#carousel.col-lg-12.col-md-1.bg-info.mt-0
-    #TECarousel.carousel.slide.carousel-fade.bg-info(data-bs-ride='carousel')
+  section#carousel.col-lg-12.col-md-12.bg-dark.mt-0
+    #TECarousel.carousel.slide.carousel-fade.bg-secondary(data-bs-ride='carousel')
       .carousel-indicators
         button.active(type='button' data-bs-target='#TECarousel' data-bs-slide-to='0' aria-current='true' aria-label='Slide 1')
         button(type='button' data-bs-target='#TECarousel' data-bs-slide-to='1' aria-label='Slide 2')
@@ -13,7 +13,7 @@ block content
         button(type='button' data-bs-target='#TECarousel' data-bs-slide-to='4' aria-label='Slide 5')
         button(type='button' data-bs-target='#TECarousel' data-bs-slide-to='5' aria-label='Slide 6')
       .carousel-inner
-        .carousel-item.bg-info.active(data-interval='50')
+        .carousel-item.bg-secondary.active(data-interval='50')
           .container-fluid
             img.d-block.w-100(src='/images/andorra.jpg' alt='...')
             .carousel-caption.d-none.d-md-block
@@ -21,7 +21,7 @@ block content
               p
                 | Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse, quo qui ratione id dolor
                 | error.
-        .carousel-item.bg-info(data-interval='50')
+        .carousel-item.bg-secondary(data-interval='50')
           .container-fluid
             img.d-block.w-100(src='/images/bora-bora.jpg' alt='...')
             .carousel-caption.d-none.d-md-block
@@ -30,7 +30,7 @@ block content
                 | Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo non maxime quas
                 | voluptas iusto autem ab neque deserunt fuga nesciunt! Pariatur cum omnis veniam,
                 | voluptatem quod repellendus tenetur vel rem?
-        .carousel-item.bg-info(data-interval='50')
+        .carousel-item.bg-secondary(data-interval='50')
           .container-fluid
             img.d-block.w-100(src='/images/corinth.jpg' alt='...')
             .carousel-caption.d-none.d-md-block
@@ -39,7 +39,7 @@ block content
                 | Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eum sequi unde.
                 | Est officiis error dolorem beatae aspernatur nobis aut deserunt sequi inventore,
                 | voluptatibus eligendi.
-        .carousel-item.bg-info(data-interval='50')
+        .carousel-item.bg-secondary(data-interval='50')
           .container-fluid
             img.d-block.w-100(src='/images/ireland.jpg' alt='...')
             .carousel-caption.d-none.d-md-block
@@ -47,7 +47,7 @@ block content
               p
                 | Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 | Eveniet harum totam reiciendis minus facere ex laudantium modi. Maxime, quam alias..
-        .carousel-item.bg-info(data-interval='50')
+        .carousel-item.bg-secondary(data-interval='50')
           .container-fluid
             img.d-block.w-100(src='/images/newyork.jpg' alt='...')
             .carousel-caption.d-none.d-md-block
@@ -55,7 +55,7 @@ block content
               p
                 | Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 | Eveniet harum totam reiciendis minus facere ex laudantium modi. Maxime, quam alias..
-        .carousel-item.bg-info(data-interval='50')
+        .carousel-item.bg-secondary(data-interval='50')
           .container-fluid
             img.d-block.w-100(src='/images/colorado10.jpg' alt='...')
             .carousel-caption.d-none.d-md-block
@@ -70,7 +70,7 @@ block content
         span.carousel-control-next-icon(aria-hidden='true')
         span.visually-hidden Next
   // *** Agents ****
-  section#agents.p-5.bg-info
+  section#agents.p-5.bg-secondary
     .container
       h2.text-center.text-white Our Agents
       p.lead.text-center.text.white.mb-5
