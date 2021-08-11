@@ -1,9 +1,0 @@
-PORT=8750
-DB_HOST=localhost
-DB_USER=root
-DB_PASS=s1mpl3
-PASSPORT_SECRET="sdflkjs;fiouer089fguerpgjpofxd"
-MONGO_ATLAS_URL="mongodb+srv://gacasti:1234321@cluster0.jg6vs.mongodb.net/travelexperts?retryWrites=true&w=majority"
-MONGO_COMPASS_URL="mongodb://localhost:27017/travelexperts"
-AGENT_DATA_URL="https://g4dataagent.azurewebsites.net"
-MANAGER_DATA_URL="https://g4datamanager.azurewebsites.net"
