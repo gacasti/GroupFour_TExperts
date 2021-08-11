@@ -1,9 +1,9 @@
-nav.navbar.navbar-expand-lg.bg-dark.navbar-dark.py-3.mb-0.fixed-top
+nav.navbar.navbar-expand-lg.bg-dark.navbar-white.py-3.mb-0.fixed-top
         .container
           a.navbar-brand(href='/')
             img(src='/images/TE_Logo.png' width='300' height='75' alt='')
           if currentUser
-              span Welcome: #{currentUser.username} (#{currentUser.role})
+              span.text-white Welcome: #{currentUser.username} (#{currentUser.role})
           button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#temenu')
             span.navbar-toggler-icon
           #temenu.collapse.navbar-collapse
