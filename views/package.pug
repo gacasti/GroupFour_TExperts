@@ -13,7 +13,7 @@ block content
                 .card-body.h3.card-title
                 <ul class="list-group">
                   <li class="list-group-item active fs-5" aria-current="true">#{pack.PkgName} </li>
-                h6.card-text
+                h6.card-text.py-3
                   <li class="list-group-item">Description: #{pack.PkgDesc}</li>
                   <li class="list-group-item">Start Date: #{pack.PkgStartDate}</li>
                   <li class="list-group-item">End Date: #{pack.PkgEndDate}</li>
@@ -25,7 +25,7 @@ block content
                   a.btn.btn-outline-success(href=add ? '/' : '/booking/add/' + (pack && pack._id)) Check it out!
                 if currentUser && currentUser.role == 'agent'
                   a.btn.btn-outline-success(href=add ? '/' : '/booking/add/' + (pack && pack._id)) Check it out! 
-                  a.btn.btn-outline-warning(href='/underconst') Create Package
+                  a.btn.btn-outline-info(href='/underconst') Create Package
                 if !currentUser
                   .button.p-2
                     a.btn.btn-outline-info.btn-lg(href='register') Register

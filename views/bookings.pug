@@ -5,7 +5,7 @@ block content
     
   .container
     
-    h2.bg-info Your Bookings With Travel Experts
+    h2.bg-warning Your Bookings With Travel Experts
       if !bookings
         h3 You don't have any bookings.
       else 
@@ -25,6 +25,6 @@ block content
               p.card-text
                 form(action='/booking/cancel/'+booking._id method='get')
                   .col-sm-12
-                    button.btn.btn-success.col-12(type='submit') Cancel
+                    button.btn.btn-danger.col-12(type='submit') Cancel
                   input(type='hidden' name="CustomerId" value=booking && booking.CustomerId)
               
