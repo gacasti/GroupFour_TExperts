@@ -2,11 +2,11 @@ extends layout
 
 block content
   .container
-    h2 Packages
+    h1.p-3.mx-5 Packages
       if listOfPackages
         .row
           each pack in listOfPackages
-            .card.bg-light.float-left
+            .card.bg-light.float-left.m-3
               .card-body.text-right
                 //- img.rounded.float-left.card-img-top.mx-auto(src=pack.ImgPath style="max-width:400px;") 
                 img.rounded.float-left.card-img-top(src=pack.ImgPath style="max-width:400px mx-auto") 
@@ -27,7 +27,8 @@ block content
                   a.btn.btn-outline-success(href=add ? '/' : '/booking/add/' + (pack && pack._id)) Check it out! 
                   a.btn.btn-outline-warning(href='/underconst') Create Package
                 if !currentUser
-                  a.btn.btn-outline-info.col-6(href='register') Register
-                  a.btn.btn-outline-secondary.col-6(href='login') Log In
+                .button.p-2
+                  a.btn.btn-outline-info.btn-lg(href='register') Register
+                  a.btn.btn-outline-secondary.btn-lg.mx-2(href='login') Log In
               
 
