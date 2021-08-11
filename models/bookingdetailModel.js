@@ -14,7 +14,6 @@ const bookingdetailSchema = new mongoose.Schema({
         type: Number,
         required: "Required",
         trim: true,
-        unique: "Itinerary no. should be unique",
         default: 306,
     },
     Tripstart: {
