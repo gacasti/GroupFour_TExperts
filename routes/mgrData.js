@@ -1,4 +1,4 @@
-var serverOne = process.env.DATA_URL || "http://localhost:8050/";
+var serverOne = process.env.MGR_DATA_URL || "http://localhost:8050/";
 
 module.exports = function (req, res) {
     if (!req.user || req.user.role != "manager") {

@@ -54,22 +54,24 @@ router.post("/book", function (req, res, next) {
   // PackageId
   booking.PackageId = req.body.PackageId;
 
-  // 
+  // Number of travelers
   booking.TravelerCount = req.body.TravelerCount;
+
+  // Add booking date of today
   booking.BookingDate = moment(new Date().toJSON().slice(0, 10));
-  console.log(booking);
-  // Assign values for bookings details object
+
+  // Assign values for bookings details object ...
 
   booking.save(function (err) {
     if (err) return processErrors(err, "bookingadd", req, res, req.body);
-    // res.redirect("/booking/bookings/" + currUser);
-    next;
+    res.redirect("/booking/bookings/" + currUser);
+
   });
 
-  bookingDetail.save(function (err) {
-    if (err) return processErrors(err, "bookingadd", req, res, req.body);
-    res.redirect("/booking/bookings/" + currUser);
-  });
+  // bookingDetail.save(function (err) {
+  //   if (err) return processErrors(err, "bookingadd", req, res, req.body);
+  //   res.redirect("/booking/bookings/" + currUser);
+  // });
 });
 
 /****  Get booking for a specific Customer ***** */
