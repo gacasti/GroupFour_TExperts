@@ -42,20 +42,31 @@ router.post("/book", function (req, res, next) {
   const bookingDetail = new Bookingdetail();
   // ****** Assign values for booking object ******
   const b_Id = Math.floor(Math.random() * 1000000);
-  // const currUser = new User();
+
   const currUser = req.body.CustomerId;
-  //  Create a customer object
+  //  Create a BookingId and ._id for booking record
   booking.BookingId = 1000 + b_Id;
   booking._id = 1000 + b_Id;
-  // booking.CustomerId = req.user?.username.userid;
+
+  // CustomerId
   booking.CustomerId = currUser;
+
+  // PackageId
   booking.PackageId = req.body.PackageId;
+
+  // 
   booking.TravelerCount = req.body.TravelerCount;
   booking.BookingDate = moment(new Date().toJSON().slice(0, 10));
   console.log(booking);
   // Assign values for bookings details object
 
   booking.save(function (err) {
+    if (err) return processErrors(err, "bookingadd", req, res, req.body);
+    // res.redirect("/booking/bookings/" + currUser);
+    next;
+  });
+
+  bookingDetail.save(function (err) {
     if (err) return processErrors(err, "bookingadd", req, res, req.body);
     res.redirect("/booking/bookings/" + currUser);
   });

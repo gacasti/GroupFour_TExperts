@@ -30,11 +30,13 @@ const bookingdetailSchema = new mongoose.Schema({
     Description: {
         type: String,
         required: "Enter description",
+        default: "Vacation Description",
         trim: true,
     },
     Destination: {
         type: String,
         required: "Enter destination",
+        default: "Vacation Destination",
         trim: true,
     },
     BasePrice: {

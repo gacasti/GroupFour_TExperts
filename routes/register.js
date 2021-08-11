@@ -44,7 +44,7 @@ router.post('/', function (req, res, next) {
             }
             console.log(result);
             const headermessage = `Account created ${result.firstname}`;
-            res.redirect("/thankyou?headermessage=" + headermessage);
+            res.redirect("/thankyou-reg");
         });
     });
 });
