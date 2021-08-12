@@ -12,16 +12,16 @@ block content
         .row
           each booking in bookings
             .card.col-sm-12
-              img.card-img-top.mx-auto(src=booking.PackageId.ImgPath style=" max-width:50px;")              
+              img.card-img-top.mx-auto(src=booking.PackageId.ImgPath style=" max-width:40%;")              
               h5= booking.PackageId.PkgName
               h6
                 | Package Description: #{booking.PackageId.PkgDesc}
               h6
                 | Travelers : #{booking.TravelerCount}
               h6
-                | Unit Price: #{booking.PackageId.PkgBasePrice}
+                | Unit Price: $#{booking.PackageId.PkgBasePrice} CAD
               h6
-                | Total Price: #{booking.PackageId.PkgBasePrice * booking.TravelerCount}
+                | Total Price: $#{booking.PackageId.PkgBasePrice * booking.TravelerCount} CAD
               p.card-text
                 form(action='/booking/cancel/'+booking._id method='get')
                   .col-sm-12
